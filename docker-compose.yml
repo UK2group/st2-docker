@@ -128,6 +128,8 @@ services:
       - ${ST2_PACKS_DEV:-./packs.dev}:/opt/stackstorm/packs.dev:rw
       - stackstorm-virtualenvs:/opt/stackstorm/virtualenvs:rw
       - stackstorm-ssh:/home/stanley.ssh
+      - /home/deploy/.ssh/id_ed25519:/root/.ssh/id_ed25519:ro
+      - /home/deploy/.ssh/known_hosts:/root/.ssh/known_hosts:ro
       # Action runner needs access to keys since action definitions (Jinja
       # templates) can reference secrets
       - stackstorm-keys:/etc/st2/keys:ro
